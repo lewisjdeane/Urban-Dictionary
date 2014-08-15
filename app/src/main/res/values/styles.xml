@@ -1,0 +1,20 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+    </style>
+
+    <color name="theme1_primary">#009688</color>
+    <color name="theme1_secondary">#00796B</color>
+
+    <color name="theme2_primary">#E51C23</color>
+    <color name="theme2_secondary">#D01716</color>
+
+    <color name="theme3_primary">#673AB7</color>
+    <color name="theme3_secondary">#512DA8</color>
+
+    <color name="theme4_primary">#FF9800</color>
+    <color name="theme4_secondary">#F57C00</color>
+
+</resources>

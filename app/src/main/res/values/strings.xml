@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Urban Dictionary</string>
+    <string name="heading_section1">Weekly Words</string>
+    <string name="heading_section2">Random</string>
+    <string name="heading_section3">Favourites</string>
+    <string name="heading_section4">Settings</string>
+    <string name="heading_section5">Information</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_example">Example action</string>
+    <string name="settings">Settings</string>
+
+    <string name="action_bar_toggle_content_desc">Toggles the navigation drawer</string>
+    <string name="action_bar_back_content_desc">Go back</string>
+    <string name="action_bar_search_hint">Search for a word</string>
+    <string name="speech_no_results">No results for voice search.</string>
+
+    <string name="theme1">Aqua</string>
+    <string name="theme2">Rouge</string>
+    <string name="theme3">Deep Purple</string>
+    <string name="theme4">Vibrant Orange</string>
+    <string name="theme5">Forest Green</string>
+    <string name="theme6">Hot Pink</string>
+    <string name="theme7">Cool Blue</string>
+    <string name="theme8">Slate Grey</string>
+
+    <string name="title_activity_preference">PreferenceActivity</string>
+    <string name="info">Information</string>
+    <string name="downloading_complete">Downloading complete!</string>
+    <string name="no_network_heading">No Network Available.</string>
+    <string name="no_network_message">A network connection is advised for this app, without one the functionality of the app is limited. Please turn on wi-fi or data to make the most of this app.</string>
+    <string name="okay">Okay</string>
+    <string name="no_favourites">No favourites yet.</string>
+    <string name="no_results_prefix">No results for</string>
+
+    <string name="more_apps_header">More Apps</string>
+    <string name="more_apps_content">View more of my apps</string>
+
+    <string name="rate_header">Rate</string>
+    <string name="rate_content">Rate this app</string>
+
+    <string name="info_text">Welcome to this app, it\'s an unofficial implementation of the online dictionary \'Urban Dictionary\' that was designed to build upon the popularity of Urban Dictionary by giving it the refreshing makeover that it needed. All the words, definitions, meanings and any associated content belongs to them.\n\nIn the navigation drawer there are 3 different pages to choose from which allows different content to be shown when nothing is being searched for, when there is no network available only \'Favourites\' will be available. Below these options you can access the settings or a page with information.\n\nTo search for a word simply click the search icon in the action bar and begin typing a word, suggestions will appear beneath the search box which you can click. Speech input is available by tapping the microphone icon.\n\nTo favourite a definition, simply click the heart icon on an item, this will now allow it to be shown in the favourites panel.\n\nI hope you enjoy using this app and if you do please feel free to leave a review, thanks!\n\n\nDeveloped by Lewis Deane\n\nLast Update - V1 - 01/08/2014</string>
+
+    <string-array name="settings_array">
+        <item name="setting_colour">Theme Colour</item>
+        <item name="setting_default">Default Mode</item>
+    </string-array>
+    <string-array name="colours_array">
+        <item>Aqua</item>
+        <item>Rouge</item>
+        <item>Deep Purple</item>
+        <item>Vibrant Orange</item>
+        <item>Forest Green</item>
+        <item>Hot Pink</item>
+        <item>Cool Blue</item>
+        <item>Slate Grey</item>
+    </string-array>
+
+    <string-array name="defaults_array">
+        <item>Weekly Words</item>
+        <item>Random</item>
+        <item>Favourites</item>
+    </string-array>
+
+    <string name="title_activity_info">InfoActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+</resources>

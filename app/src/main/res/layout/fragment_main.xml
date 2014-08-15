@@ -1,0 +1,42 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity$MainFragment">
+
+    <uk.me.lewisdeane.urbandictionary.CustomListView
+        android:id="@+id/suggestions_list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        app:isDividerThemed="true" />
+
+    <ListView
+        android:id="@+id/results_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="6dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:dividerHeight="6dp"
+        android:divider="#0000"
+        android:paddingBottom="6dp"
+        android:paddingTop="6dp" />
+
+    <uk.me.lewisdeane.urbandictionary.CustomTextView
+        android:id="@+id/no_favourites"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:padding="16dp"
+        android:text="@string/no_favourites"
+        android:textColor="#FFF"
+        android:textSize="40sp"
+        android:visibility="gone"
+        app:font="Roboto-LightItalic.ttf"/>
+
+</LinearLayout>

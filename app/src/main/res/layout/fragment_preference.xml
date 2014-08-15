@@ -1,0 +1,16 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/preferences_container"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="6dp">
+    <ListView
+        android:id="@+id/preference_list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:dividerHeight="6dp"
+        android:divider="#0000"
+        android:clipToPadding="false">
+    </ListView>
+</LinearLayout>

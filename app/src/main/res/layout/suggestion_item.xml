@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:id="@+id/suggestion_item_container"
+    android:layout_height="50dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp">
+
+    <ImageView
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:scaleType="fitCenter"
+        android:layout_gravity="left|center"
+        android:background="#0000"
+        android:src="@drawable/ic_action_search_white"/>
+
+    <uk.me.lewisdeane.urbandictionary.CustomTextView
+        android:id="@+id/suggestion_item_title"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginLeft="31dp"
+        android:textSize="20sp"
+        android:textColor="#FFF"
+        android:gravity="left|center"/>
+
+</LinearLayout>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/search_item_container"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="10dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingBottom="10dp"
+    android:background="@drawable/bg_card"
+    android:minHeight="60dp"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="30dp"
+        android:weightSum="8">
+
+        <uk.me.lewisdeane.urbandictionary.CustomTextView
+            android:id="@+id/search_item_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:paddingRight="46dp"
+            android:textSize="28sp"
+            app:font="Roboto-Medium.ttf"/>
+
+        <ImageButton
+            android:id="@+id/search_item_favourite"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:background="#0000"
+            android:scaleType="fitCenter" />
+
+    </RelativeLayout>
+
+    <uk.me.lewisdeane.urbandictionary.CustomTextViewJustified
+        android:id="@+id/search_item_meaning"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="5dp"
+        android:gravity="left|center_vertical"
+        android:textColor="#000"
+        android:textSize="18sp"
+        android:lineSpacingMultiplier="1.25"/>
+
+    <LinearLayout
+        android:id="@+id/search_item_linear_layout_expanded"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/search_item_divider"
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"/>
+
+
+        <uk.me.lewisdeane.urbandictionary.CustomTextViewJustified
+            android:id="@+id/search_item_example"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center_vertical"
+            android:layout_marginTop="-5dp"
+            android:paddingBottom="5dp"
+            android:gravity="left|center_vertical"
+            android:textColor="#000"
+            android:textSize="18sp"
+            android:lineSpacingMultiplier="1.25"
+            app:font="Roboto-LightItalic.ttf"/>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="30dp">
+
+            <uk.me.lewisdeane.urbandictionary.CustomTextView
+                android:id="@+id/search_item_up_rating"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|center"
+                android:gravity="left|center"
+                android:textSize="18sp"
+                app:font="Roboto-Medium.ttf"/>
+
+            <uk.me.lewisdeane.urbandictionary.CustomTextView
+                android:id="@+id/search_item_down_rating"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center_vertical"
+                android:gravity="left|center"
+                android:textSize="18sp"
+                app:font="Roboto-Medium.ttf"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

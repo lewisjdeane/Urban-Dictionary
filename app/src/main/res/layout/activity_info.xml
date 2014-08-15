@@ -1,0 +1,31 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="uk.me.lewisdeane.urbandictionary.InfoActivity">
+
+    <fragment
+        android:id="@+id/info_action_bar"
+        android:name="uk.me.lewisdeane.urbandictionary.PreferenceActionBarFragment"
+        android:layout_width="fill_parent"
+        android:layout_height="56dp"
+        tools:layout="@layout/fragment_action_bar_preference" />
+
+    <ScrollView
+        android:id="@+id/info_scroll"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:clipToPadding="false"
+        android:padding="16dp">
+
+        <uk.me.lewisdeane.urbandictionary.CustomTextViewJustified
+            android:id="@+id/info_text"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:text="@string/info_text"
+            android:textColor="#FFF"
+            android:textSize="20sp" />
+    </ScrollView>
+
+</LinearLayout>

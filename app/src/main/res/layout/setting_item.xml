@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:background="@drawable/bg_card"
+    android:padding="10dp"
+    android:orientation="vertical">
+
+    <uk.me.lewisdeane.urbandictionary.CustomTextView
+        android:id="@+id/setting_item_title"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:gravity="left|top"
+        android:textSize="28sp"
+        app:font="Roboto-MediumItalic.ttf"/>
+
+    <uk.me.lewisdeane.urbandictionary.CustomTextView
+        android:id="@+id/setting_item_subtitle"
+        android:layout_width="fill_parent"
+        android:layout_height="30dp"
+        android:gravity="right|center_vertical"
+        android:textSize="22sp"
+        android:textColor="#AAA"
+        app:font="Roboto-LightItalic.ttf"/>
+
+</LinearLayout>
