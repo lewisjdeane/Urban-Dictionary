@@ -5,12 +5,14 @@ import android.app.AlertDialog;
 import android.app.Notification;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.text.Html;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -20,6 +22,8 @@ import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
 import android.widget.LinearLayout;
 import android.widget.Toast;
+
+import uk.me.lewisdeane.ldialogs.CustomDialog;
 
 
 public class MainActivity extends Activity
@@ -34,12 +38,17 @@ public class MainActivity extends Activity
 
     public static String BASE_URL = "http://www.urbandictionary.com/define.php?term=";
     public static boolean NETWORK_AVAILABLE = true;
+
     public SharedPreferences mSharedPreferences;
+
+    public static Context mContext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mContext = this;
 
         init();
         checkForInternet();
@@ -142,24 +151,28 @@ public class MainActivity extends Activity
             mMainFragment.loadSearchResults("");
             mActionBarFragment.mHeader.setText(getString(R.string.heading_section3));
 
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle(getString(R.string.no_network_heading));
-            builder.setMessage(getString(R.string.no_network_message));
-            builder.setPositiveButton(getString(R.string.okay), new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
+            CustomDialog.Builder builder = new CustomDialog.Builder(this, getString(R.string.no_network_heading), getString(R.string.okay));
+            builder.content(getString(R.string.no_network_message));
+            builder.positiveColor(Themes.getPrimaryColour());
 
-                }
-            });
-            AlertDialog alertDialog = builder.create();
-            alertDialog.setCanceledOnTouchOutside(false);
-            alertDialog.setCancelable(false);
-            alertDialog.show();
+            CustomDialog customDialog = builder.build();
+            customDialog.setCanceledOnTouchOutside(false);
+            customDialog.setCancelable(false);
+            customDialog.show();
         }
     }
 
     public void checkForDatabase() {
         if(NETWORK_AVAILABLE)
             new DatabaseHelper(this).checkForDatabase();
+    }
+
+    public static void share(SearchItem _searchItem){
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.setType("text/plain");
+        sendIntent.putExtra(Intent.EXTRA_TEXT, String.format("Check out %s on UrbanDictionary! http://www.urbandictionary.com/define.php?term=%s", _searchItem.getTitle(), _searchItem.getTitle()));
+        //sendIntent.putExtra(Intent.EXTRA_SUBJECT, "Check out " + _searchItem.getTitle() + " Urban Dictionary!");
+        mContext.startActivity(Intent.createChooser(sendIntent, "Share definition"));
     }
 }

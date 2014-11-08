@@ -68,7 +68,7 @@ public class ConnectionHelper {
             try {
                 Document doc = Jsoup.connect(_url[0]).get();
 
-                Elements titles = doc.select("div[class=word]");
+                Elements titles = doc.select("a[class=word]");
                 Elements meanings = doc.select("div[class=meaning]");
                 Elements examples = doc.select("div[class=example]");
                 Elements rating = doc.select("span[class=count]");

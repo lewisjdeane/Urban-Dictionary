@@ -3,6 +3,7 @@ package uk.me.lewisdeane.urbandictionary;
 import java.util.ArrayList;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -101,6 +102,15 @@ public class CustomAdapter extends ArrayAdapter<SearchItem> {
                 si.setIsExpanded(!si.getIsExpanded());
                 searchItems.set(position, si);
                 notifyDataSetChanged();
+            }
+        });
+
+        searchContainer.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                SearchItem si = searchItems.get(position);
+                MainActivity.share(si);
+                return false;
             }
         });
         return v;

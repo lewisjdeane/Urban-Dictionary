@@ -25,6 +25,7 @@
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:paddingRight="46dp"
+            android:paddingLeft="0dp"
             android:textSize="28sp"
             app:font="Roboto-Medium.ttf"/>
 
@@ -45,9 +46,10 @@
         android:layout_height="wrap_content"
         android:paddingBottom="5dp"
         android:gravity="left|center_vertical"
-        android:textColor="#000"
+        android:textColor="#000000"
+        android:alpha="0.87"
         android:textSize="18sp"
-        android:lineSpacingMultiplier="1.25"/>
+        app:font="Roboto-Regular.ttf"/>
 
     <LinearLayout
         android:id="@+id/search_item_linear_layout_expanded"
@@ -72,9 +74,10 @@
             android:paddingBottom="5dp"
             android:gravity="left|center_vertical"
             android:textColor="#000"
+            android:alpha="0.87"
             android:textSize="18sp"
-            android:lineSpacingMultiplier="1.25"
-            app:font="Roboto-LightItalic.ttf"/>
+            android:lineSpacingMultiplier="1"
+            app:font="Roboto-Italic.ttf"/>
 
         <LinearLayout
             android:layout_width="fill_parent"
