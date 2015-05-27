@@ -4,10 +4,12 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.os.AsyncTask;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -31,10 +33,11 @@ public class DatabaseHelper {
     boolean isOpen = false;
     ProgressDialog mProgressDialog;
     boolean isFinished = false;
+    private SharedPreferences mSharedPreferences;
+    private final String PREF_SUGGESTIONS = "PREF_SUGGESTIONS_DOWNLOADED";
 
     public DatabaseHelper(Context _context) {
         mContext = _context;
-        //mDatabase = new Database(mContext); dont think its needed
     }
 
     public ArrayList<String> readSuggestions(String _searching) {
@@ -55,35 +58,44 @@ public class DatabaseHelper {
         } catch(SQLiteException exception){
             exception.printStackTrace();
         }
+
         close();
         return suggestions;
     }
 
     public void checkForDatabase(){
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(mContext);
 
-        mProgressDialog = new ProgressDialog(mContext);
-        mProgressDialog.setMax(26);
-        mProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-        mProgressDialog.setMessage("Downloading suggestions database needed for app - this won't take long!");
-        mProgressDialog.setCanceledOnTouchOutside(false);
-        mProgressDialog.setCancelable(false);
+        if (!mSharedPreferences.getBoolean(PREF_SUGGESTIONS, false)) {
 
-        Database database = new Database(mContext);
-        SQLiteDatabase sqLiteDatabase = database.getReadableDatabase();
+            mProgressDialog = new ProgressDialog(mContext);
+            mProgressDialog.setMax(26);
+            mProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+            mProgressDialog.setMessage("Downloading suggestions database needed for app - this won't take long!");
+            mProgressDialog.setCanceledOnTouchOutside(false);
+            mProgressDialog.setCancelable(false);
 
-        for(char c : alphabet) {
-            Cursor C = sqLiteDatabase.query(Database.POPULAR_SUGGESTIONS_TABLE, new String[]{"LETTER", "WORD"}, "LETTER=?", new String[]{c+""}, null, null, "WORD COLLATE NOCASE DESC");
-            if(C == null || !C.moveToFirst() || C.getColumnCount() == 0) {
-                mProgressDialog.show();
-                new AddPopularWordToDatabase().execute(c + "");
-            } else{
-                mProgressDialog.incrementProgressBy(1);
+            Database database = new Database(mContext);
+            SQLiteDatabase sqLiteDatabase = database.getReadableDatabase();
+
+            for (char c : alphabet) {
+                Cursor C = sqLiteDatabase.query(Database.POPULAR_SUGGESTIONS_TABLE, new String[]{"LETTER", "WORD"}, "LETTER=?", new String[]{c + ""}, null, null, "WORD COLLATE NOCASE DESC");
+                if (C == null || !C.moveToFirst() || C.getColumnCount() == 0) {
+                    mProgressDialog.show();
+                    new AddPopularWordToDatabase().execute(c + "");
+                } else {
+                    mProgressDialog.incrementProgressBy(1);
+                }
+                C.close();
             }
-            C.close();
-        }
 
-        sqLiteDatabase.close();
-        database.close();
+            SharedPreferences.Editor editor = mSharedPreferences.edit();
+            editor.putBoolean(PREF_SUGGESTIONS, true);
+            editor.commit();
+
+            sqLiteDatabase.close();
+            database.close();
+        }
     }
 
     public void close() {
